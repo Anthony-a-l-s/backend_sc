@@ -20,7 +20,6 @@ function verifyEmpty(name, username, email, password, admin) {
     if (admin !== false && admin !== true) {
         string = string + 'admin, ';
     }
-    console.log(string);
     return string;
 }
 
@@ -30,7 +29,6 @@ module.exports = {
     create: async function (req, res, next) {
 
         const { name, username, email, password, admin } = req.body;
-        console.log(name + ' ' + username + ' ' + email + ' ' + ' ' + password + ' ' + ' ' + admin)
         const empty = verifyEmpty(name, username, email, password, admin)
         if (empty !== '') {
             res.status(400).json(`${empty} não preenchido(s)`);
